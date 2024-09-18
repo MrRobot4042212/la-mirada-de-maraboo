@@ -1,25 +1,38 @@
 ---
-const { url, content } = Astro.props;
+const { url, content, Class } = Astro.props;
 ---
 
-<a class="button" href={url}>
+<a class={Class} href={url}>
     { content }
 </a>
 
 <style>
-    .button{
+    .buttonNormal{
         text-decoration: none;
         transition: all 0.5s linear;
         cursor:pointer;
         padding: 20px;
-        color: #e9da9f;
-        font-size: 20px;
-        box-shadow: 5px 5px 5px 1px rgb(0, 0, 0,0.1) ;
+        color: #c3d0e2;
+        font-size: 18px;
+    }
+    .buttonNormal:hover{
+        background-color: #293b51;
+        border-radius: 10px;
+    }
+    .buttonBorder{
+        text-decoration: none;
+        transition: all 0.5s linear;
+        cursor:pointer;
+        padding: 20px;
+        color: #c3d0e2;
+        background-color: #293b51;
+        font-size: 18px;
+        border-radius: 10px;
+    }
+    .buttonBorder:hover{
+        background-color: #c3d0e2;
+        color: #293b51;
     }
 
-    .button:hover{
-        transform: scale(1.05);
-        border: rgb(233, 218, 159,1) solid 1px;
-        background:rgb(203, 124, 68,0.3) ;
-    }
+    .button:
 </style>

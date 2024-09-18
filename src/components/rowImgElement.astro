@@ -1,0 +1,23 @@
+---
+import Image from "astro/components/Image.astro"
+---
+
+
+<section class="rowImgContainer">
+    <slot/>
+</section>
+
+<style>
+    .rowImgContainer{
+    display: flex;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    width: 100%;
+    align-content: center;
+    justify-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px 0px;
+}
+</style>
+

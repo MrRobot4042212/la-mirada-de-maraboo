@@ -4,6 +4,7 @@ interface Props {
 }
 const { title } = Astro.props;
 import Header from '../components/header.astro';
+import Footer from '../components/footer.astro';
 import { ViewTransitions } from 'astro:transitions';
 
 ---
@@ -18,37 +19,39 @@ import { ViewTransitions } from 'astro:transitions';
 		<title>{title}</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-		<ViewTransitions/>
+		<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 	</head>
 	<body>
 		<Header/>
 		<main>
-			<slot name="before"/>
 			<slot/>
 		</main>
-		<!-- <Footer/> -->
+		<Footer>
 	</body>
 </html>
 <style is:global>
 	html {
-		font-family: 'montserrat';
-		/*background:#352513;*/
-		background: #d89f6f;
+		font-family: 'Nanum Gothic', sans-serif;
+		background: #fff;
+		overflow-x: hidden;
 	}
+
 	body{
 		display: flex;
 		flex-direction: column;
-		row-gap: 30px;
 		flex-wrap:wrap;
+		margin: 0;
+		padding-top: 100vh;
+		background-color: #293b51;
+
 	}
 	main{
-		display: flex;
-		flex-wrap: wrap;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		align-content: center;
-		row-gap: 30px;
+		max-height: 100vh;
+		overflow-y:scroll;
+		scroll-snap-type: y mandatory;
+		scroll-snap-align: center;
+		scrollbar-width: none;
 	}
 </style>
+
+

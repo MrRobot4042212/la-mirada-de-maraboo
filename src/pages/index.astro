@@ -3,101 +3,241 @@ import Layout from '../layouts/Layout.astro';
 import RowElement from '../components/rowElement.astro';
 import Article from '../components/article.astro';
 import { Image } from 'astro:assets';
-import MarabooLogo from '../../public/image/grupo1.webp'
 import Buttons from '../components/buttons.astro';
----
+import ImgCarrusel from '../components/imgCarrusel.astro';
+import RowImgElement from '../components/rowImgElement.astro';
+import Orfanato1 from '../../public/image/orfanato/1.webp'
 
+---
 <Layout title="La Mirada de Maraboo">
-        <aside slot="before">
+    <section class="mainContent">
+        <section class="beforeContent" slot="before">
             <span>
                 <h1>Nos comprometemos a mejorar la vida de 100 niños en situación de orfandad en Tanzania, específicamente el orfanato Msamaria en la región de Moshi. Nuestra misión es brindarles un hogar seguro, acceso a educación de calidad, atención médica y apoyo emocional, para que puedan crecer y desarrollarse en un entorno propicio.
                 </h1>
-                <Buttons
-                    url="/404"
-                    content= "Más información"
+                <Buttons 
+                    url="/"
+                    content="Mas Informacion"
+                    Class="buttonBorder"
                 />
             </span> 
-            <Image
-            src={MarabooLogo}
-            alt="Una descripción de mi imagen." 
-            width="750"
-            height="450"
-            decoding="async"
-            loading="lazy"
-            alt="Una descripción de mi imagen."
-            />
-        </aside>
-        <RowElement>
-        <section class="articleContainer">
-            <Article
-                subtitle="Compasión",
-                contenText="Nos preocupamos profundamente por el bienestar de cada niño y nos esforzamos por entender y atender sus necesidades individuales."
-            >
-                <svg
-                slot="svg"
-                class="icon icon-tabler icon-tabler-users" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
-                <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
-                </svg>
-            </Article>
-
-            <Article
-            subtitle="Integridad",
-            contenText="Operamos con transparencia y honestidad en todas nuestras acciones, asegurando la confianza de nuestros donantes y la comunidad en general."
-            >
-                <svg 
-                slot="svg"
-                class="icon icon-tabler icon-tabler-users-group" 
-                width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                    <path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" />
-                    <path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                    <path d="M17 10h2a2 2 0 0 1 2 2v1" />
-                    <path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                    <path d="M3 13v-1a2 2 0 0 1 2 -2h2" />
-                </svg>
-            </Article>
-
-            <Article
-            subtitle="Dedicación",
-            contenText="Trabajamos en estrecha colaboración con las autoridades locales, otras organizaciones y la comunidad en general para maximizar el impacto positivo de nuestras intervenciones."
-            >
-            <svg
-            slot="svg" 
-            xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart-handshake" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
-                <path d="M12 6l-3.293 3.293a1 1 0 0 0 0 1.414l.543 .543c.69 .69 1.81 .69 2.5 0l1 -1a3.182 3.182 0 0 1 4.5 0l2.25 2.25" />
-                <path d="M12.5 15.5l2 2" />
-                <path d="M15 13l2 2" />
-              </svg>
-            </Article>
-
-            <Article
-            subtitle="Colaboración",
-            contenText="Nos preocupamos profundamente por el bienestar de cada niño y nos esforzamos por entender y atender sus necesidades individuales."
-            >
-            <svg
-            slot="svg"
-            xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-puzzle-2" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
-                <path d="M12 4v2.5a.5 .5 0 0 1 -.5 .5a1.5 1.5 0 0 0 0 3a.5 .5 0 0 1 .5 .5v1.5" />
-                <path d="M12 12v1.5a.5 .5 0 0 0 .5 .5a1.5 1.5 0 0 1 0 3a.5 .5 0 0 0 -.5 .5v2.5" />
-                <path d="M20 12h-2.5a.5 .5 0 0 1 -.5 -.5a1.5 1.5 0 0 0 -3 0a.5 .5 0 0 1 -.5 .5h-1.5" />
-                <path d="M12 12h-1.5a.5 .5 0 0 0 -.5 .5a1.5 1.5 0 0 1 -3 0a.5 .5 0 0 0 -.5 -.5h-2.5" />
-              </svg>
-            </Article>     
+            <ImgCarrusel/>
         </section>
-        </RowElement>
+        <section id="valores">
+            <RowElement title="Valores">
+                <section class="articleContainer">
+                    <Article
+                        subtitle="Compasión",
+                        contenText="Nos preocupamos profundamente por el bienestar de cada niño y nos esforzamos por entender y atender sus necesidades individuales."
+                    >
+                        <svg
+                        slot="svg"
+                        class="icon icon-tabler icon-tabler-users" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                        <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
+                        </svg>
+                    </Article>
+        
+                    <Article
+                    subtitle="Integridad",
+                    contenText="Operamos con transparencia y honestidad en todas nuestras acciones, asegurando la confianza de nuestros donantes y la comunidad en general."
+                    >
+                        <svg 
+                        slot="svg"
+                        class="icon icon-tabler icon-tabler-users-group" 
+                        width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                            <path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" />
+                            <path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                            <path d="M17 10h2a2 2 0 0 1 2 2v1" />
+                            <path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                            <path d="M3 13v-1a2 2 0 0 1 2 -2h2" />
+                        </svg>
+                    </Article>
+        
+                    <Article
+                    subtitle="Dedicación",
+                    contenText="Trabajamos en estrecha colaboración con las autoridades locales, otras organizaciones y la comunidad en general para maximizar el impacto positivo de nuestras intervenciones."
+                    >
+                    <svg
+                    slot="svg" 
+                    xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart-handshake" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                        <path d="M12 6l-3.293 3.293a1 1 0 0 0 0 1.414l.543 .543c.69 .69 1.81 .69 2.5 0l1 -1a3.182 3.182 0 0 1 4.5 0l2.25 2.25" />
+                        <path d="M12.5 15.5l2 2" />
+                        <path d="M15 13l2 2" />
+                    </svg>
+                    </Article>
+        
+                    <Article
+                    subtitle="Colaboración",
+                    contenText="Nos preocupamos profundamente por el bienestar de cada niño y nos esforzamos por entender y atender sus necesidades individuales."
+                    >
+                    <svg
+                    slot="svg"
+                    xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-puzzle-2" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+                        <path d="M12 4v2.5a.5 .5 0 0 1 -.5 .5a1.5 1.5 0 0 0 0 3a.5 .5 0 0 1 .5 .5v1.5" />
+                        <path d="M12 12v1.5a.5 .5 0 0 0 .5 .5a1.5 1.5 0 0 1 0 3a.5 .5 0 0 0 -.5 .5v2.5" />
+                        <path d="M20 12h-2.5a.5 .5 0 0 1 -.5 -.5a1.5 1.5 0 0 0 -3 0a.5 .5 0 0 1 -.5 .5h-1.5" />
+                        <path d="M12 12h-1.5a.5 .5 0 0 0 -.5 .5a1.5 1.5 0 0 1 -3 0a.5 .5 0 0 0 -.5 -.5h-2.5" />
+                    </svg>
+                    </Article>     
+                </section>
+                <RowImgElement>
+                    <Image
+                    class='imgContent'
+                    src={ Orfanato1 }
+                    alt="Imagen horizontal del los niños del orfanato" 
+                    decoding="async"
+                    loading="lazy"
+                    />
+            
+                <Image
+                    src={ Orfanato1 }
+                    class='imgContent'
+                    alt="Imagen horizontal del los niños del orfanato" 
+                    decoding="async"
+                    loading="lazy"
+                    />
+                <Image
+                    src={ Orfanato1 }
+                    class='imgContent'
+                    alt="Imagen horizontal del los niños del orfanato" 
+                    decoding="async"
+                    loading="lazy"
+                />
+                <Image
+                    src={ Orfanato1 }
+                    class='imgContent'
+                    alt="Imagen horizontal del los niños del orfanato" 
+                    decoding="async"
+                    loading="lazy"
+                />
+                </RowImgElement> 
+            </RowElement>
 
+        
+        </section>
+        <section id="objetivos">
+            <RowElement title="Objetivos">
+                <section class="articleContainer">
+                    <Article
+                        subtitle="Cuidado Integral",
+                        contenText="Proporcionamos un entorno familiar y seguro para los niños, donde tienen acceso a comida, vivienda y cuidado médico."
+                    >
+                    <svg 
+                    slot="svg"
+                    class="icon icon-tabler icon-tabler-mood-heart" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M21 12a9 9 0 1 0 -8.012 8.946" />
+                        <path d="M9 10h.01" />
+                        <path d="M15 10h.01" />
+                        <path d="M9.5 15a3.59 3.59 0 0 0 2.774 .99" />
+                        <path d="M18.994 21.5l2.518 -2.58a1.74 1.74 0 0 0 .004 -2.413a1.627 1.627 0 0 0 -2.346 -.005l-.168 .172l-.168 -.172a1.627 1.627 0 0 0 -2.346 -.004a1.74 1.74 0 0 0 -.004 2.412l2.51 2.59z" />
+                    </svg>
+                    </Article>
+        
+                    <Article
+                    subtitle="Educación",
+                    contenText="Garantizamos que todos los niños tengan acceso a una educación de calidad, brindándoles oportunidades para desarrollar su potencial académico y personal."
+                    >
+                    <svg
+                    slot="svg"
+                    class="icon icon-tabler icon-tabler-school" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M22 9l-10 -4l-10 4l10 4l10 -4v6" />
+                        <path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" />
+                    </svg>
+                    </Article>
+        
+                    <Article
+                    subtitle="Salud y Bienestar",
+                    contenText="Ofrecemos atención médica preventiva y curativa, así como apoyo psicológico para promover la salud integral de los niños."
+                    >
+                    <svg
+                    slot="svg"
+                    class="icon icon-tabler icon-tabler-heartbeat" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M19.5 13.572l-7.5 7.428l-2.896 -2.868m-6.117 -8.104a5 5 0 0 1 9.013 -3.022a5 5 0 1 1 7.5 6.572" />
+                        <path d="M3 13h2l2 3l2 -6l1 3h3" />
+                    </svg>
+                    </Article>
+        
+                    <Article
+                    subtitle="Desarrollo Comunitario",
+                    contenText="Trabajamos en proyectos que benefician no solo a los niños en nuestro orfanato, sino también a la comunidad en general, fomentando un sentido de pertenencia y solidaridad."
+                    >
+                    <svg
+                    slot="svg"
+                    class="icon icon-tabler icon-tabler-building-community" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M8 9l5 5v7h-5v-4m0 4h-5v-7l5 -5m1 1v-6a1 1 0 0 1 1 -1h10a1 1 0 0 1 1 1v17h-8" />
+                        <path d="M13 7l0 .01" />
+                        <path d="M17 7l0 .01" />
+                        <path d="M17 11l0 .01" />
+                        <path d="M17 15l0 .01" />
+                    </svg>
+                    </Article>     
+                </section>
+                                <RowImgElement>
+                    <Image
+                    class='imgContent'
+                    src={ Orfanato1 }
+                    alt="Imagen horizontal del los niños del orfanato" 
+                    decoding="async"
+                    loading="lazy"
+                    />
+            
+                <Image
+                    src={ Orfanato1 }
+                    class='imgContent'
+                    alt="Imagen horizontal del los niños del orfanato" 
+                    decoding="async"
+                    loading="lazy"
+                    />
+                <Image
+                    src={ Orfanato1 }
+                    class='imgContent'
+                    alt="Imagen horizontal del los niños del orfanato" 
+                    decoding="async"
+                    loading="lazy"
+                />
+                <Image
+                    src={ Orfanato1 }
+                    class='imgContent'
+                    alt="Imagen horizontal del los niños del orfanato" 
+                    decoding="async"
+                    loading="lazy"
+                />
+                </RowImgElement> 
+            </RowElement>
+            </RowElement>
+        </section>
+    </section>
 </Layout>
 
 <style>
+    .mainContent{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        
+    }
+    .mainContent > section{
+        scroll-snap-align:center;
+        height: 100vh;
+        width: 100%;
+    }
+
     .articleContainer{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -106,26 +246,52 @@ import Buttons from '../components/buttons.astro';
     align-content: center;
     align-items: center;
     justify-content: center;
+    
     }
-    aside{
+    .beforeContent{
     display: flex;
-    flex-direction: row;
-    background: rgb(203, 124, 68, 0.5);
-    align-items: center;
     flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 30px;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #e9eef5;
+    overflow: hidden;
+    height: 100vh;
+    mask-image: linear-gradient(#e9eef5, #f4f7fb,#f4f7fb, transparent);
     }
-    aside h1 {
+    .beforeContent h1 {
         color: #333;
         text-align: center;
+        font-size: 40px;
+        font-weight: 400;
+        word-wrap:pretty;
         padding: 20px;
+        
     }
-    aside span{
+    .beforeContent span{
         max-width: 50%;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
+
+    .rowImgContainer > img{
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 10px 10px 10px rgb(0, 0, 0,0.4);
+    }
+
+    .imgContent{
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 10px 10px 10px rgb(0, 0, 0,0.4);
+    }
+
+
 
 </style>

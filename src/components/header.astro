@@ -1,144 +1,173 @@
 ---
 import Buttons from "./buttons.astro"
 import { Image } from "astro:assets";
-import MarabooLogo from '../../public/image/maraboo.webp'
+import MarabooLogo from '../../public/image/fff-removebg-preview.png'
 ---
 
 <header id="sticky-parallax-header">
-    <span class="hd-logo-container">
-        <Image
-        src={MarabooLogo}
-        alt="Una descripción de mi imagen." 
-        width="300"
-        height="300"
-        decoding="async"
-        loading="eager"
-        alt="Una descripción de mi imagen."
-        />
-    </span>
-    <h1>La Mirada de Maraboo</h1>
-    <nav class="hd-link-container">
-        <Buttons 
-        url="../pages/404.astro"
-        content="Inicio"
-        />
-        <Buttons 
-        url="../pages/404.astro"
-        content="Proyectos"
-        />
-        <Buttons 
-        url="../pages/404.astro"
-        content="Menus"
-        />
-        <Buttons 
-        url="../pages/404.astro"
-        content="Acerca de nosotros"
-        />
-        <Buttons 
-        url="../pages/404.astro"
-        content="Donativos"
-        />  
-    </nav>
+    <section>
+        <span class="hd-logo-container">
+            <Image
+            src={MarabooLogo}
+            alt="Una descripción de mi imagen." 
+            width="100"
+            height="100"
+            decoding="async"
+            loading="lazy"
+            alt="Una descripción de mi imagen."
+            draggable="false"
+            />
+        </span>
+        <nav class="hd-link-container">
+            <Buttons 
+            url="/"
+            content="Inicio"
+            Class="buttonNormal"
+            />
+            <Buttons 
+            url="/proyectos"
+            content="Proyectos"
+            Class="buttonNormal"
+            />
+            <Buttons 
+            url="menus"
+            content="Menus"
+            Class="buttonNormal"
+            />
+            <Buttons 
+            url="nosotros"
+            content="Acerca de nosotros"
+            Class="buttonNormal"
+
+            />
+            <Buttons 
+            url="donativo"
+            content="Donativos"
+            Class="buttonBorder"
+            />  
+        </nav>
+    </section>
+    <section>
+        <h5>Ayudamos a 100 niños de un orfanato en Tanzania “Moshi” msamaria</h5>
+    </section>
+    <section class="dual-border">
+        <h1>DAR</h1>
+        <h2>+</h2>
+    </section>
 </header>
 <style>
+
     header{
-        background: url(../../public/image/childrensV2.webp)  center;
-		background-size: 110%;
-        width:99%;
-		z-index: 1;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-content: center;
-		align-items: center;
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        z-index: 10;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+
     }
-    header::before{
+    header::after{
         content: "";
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			backdrop-filter: blur(2px);
-			background-color: rgb(0, 0, 0,0.5);
-			z-index: -10;
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        background:url(/image/orfanato/9.webp) no-repeat center;
+        background-size: cover;
+        background-attachment: fixed;
+        filter: grayscale(100%);
     }
+    header section:nth-child(1){
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        column-count: 2;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
     .hd-logo-container{
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         align-items: center;
+        justify-content: center;
+        width: 140px;
+        height: 140px;
     }
-    h1{
-        color:#e9da9f;
-        font-size: 80px;
-        text-align: center;
+    .hd-logo-container img{
+        width: 100%;
+        height: 100%;
     }
-
-
     .hd-link-container{
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         align-content: space-around;
         flex-direction: row;
-        width: 100%;
-        padding: 20px 0px;
         column-gap: 50px;
+        align-items: center;
+    }
+    header section:nth-child(2){
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        margin: auto;
+
+        animation: fadeOut linear forwards;
+        animation-timeline: scroll();
+        animation-range: 0vh 40vh;
     }
 
-#sticky-parallax-header {
-	position: fixed;
-	top: 0;
+    header section:nth-child(3){
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        padding: 100px;
+        border: 25px solid  ;
+        border-image: linear-gradient(to right, #c3d0e2, #293b51) 1;
+        margin: auto;
 
-	animation: sticky-parallax-header-move-and-size linear forwards;
-	animation-timeline: scroll();
-	animation-range: 0vh 90vh;
-}
-
-header .hd-logo-container{
-    animation: vanish linear forwards;
-	animation-timeline: scroll();
-	animation-range: 0vh 90vh;
-}
-header h1{
-    animation: vanish linear forwards;
-	animation-timeline: scroll();
-	animation-range: 0vh 90vh;
-}
-
-header .hd-link-container{
-    animation: popup linear forwards;
-	animation-timeline: scroll();
-	animation-range: 0vh 90vh;
-}
-body {
-	padding-top: 100vh;
-}
-
-@keyframes vanish {
-    from{
-        opacity: 1;
+        animation: fadeOut linear forwards;
+        animation-timeline: scroll();
+        animation-range: 0vh 40vh;
     }
-    50%{
-        opacity: 0;
-    }
-    100%{
-        width: 0;
-        height: 0;
-        opacity:0 ;
-    }
-    
-}
+    h1,h2{
+        color: #c3d0e2;
+        font-style: bold;
+        font-weight: bold;
+        text-align: center;
+        margin: 0;
+        text-wrap: pretty;
 
-@keyframes popup {
-
-    to{
-        backdrop-filter: blur(5px);
     }
-}
+    h2{
+        color:#293b51;
+    }
+    h5{
+        color: #c3d0e2;
+        font-size: 20px;
+        font-weight: 500;
+        text-align: center;
+        font-style: italic;
+        margin: 0;
+        text-wrap: pretty;
+    }
 
-@keyframes sticky-parallax-header-move-and-size {
+
+    @keyframes sticky-parallax-header-move-and-size {
 	from {
 		background-position: 50% 0;
 		height: 100vh;
@@ -146,8 +175,36 @@ body {
 	}
 	to {
 		background-position: 50% 100%;
-		height: 10vh;
-        flex-direction: row;
+		height: 15vh;
+		font-size: 2em;
 	}
-}
+    }
+
+    @keyframes fadeOut{
+        0%{
+            opacity: 1;
+        }
+        30%{
+            opacity: 0.2;
+            visibility: hidden;
+        }
+        100%{
+            opacity: 0;
+            visibility: hidden;
+            width: 0;
+            height: 0;
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }
+    }
+
+    #sticky-parallax-header {
+        position: fixed;
+        top: 0;
+
+        animation: sticky-parallax-header-move-and-size linear forwards;
+        animation-timeline: scroll();
+        animation-range: 0vh 90vh;
+    }
 </style>
